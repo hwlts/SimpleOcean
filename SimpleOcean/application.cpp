@@ -16,7 +16,7 @@
 */
 
 /*
-Created in X62-4013!
+Created in X62-4013! Simple Ocean
 */
 
 #include <osgViewer/Viewer>
