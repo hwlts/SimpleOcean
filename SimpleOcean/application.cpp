@@ -15,10 +15,6 @@
 * http://www.gnu.org/copyleft/lesser.txt.
 */
 
-/*
-Created in X62-4013! Simple Ocean No Manipulator
-*/
-
 #include <osgViewer/Viewer>
 #include <osgViewer/ViewerEventHandlers>
 #include <osgGA/FlightManipulator>
