@@ -750,7 +750,7 @@ int main(int argc, char *argv[])
     double oceanSurfaceHeight = 0.0f;
     while (arguments.read("--oceanSurfaceHeight", oceanSurfaceHeight));
 
-    bool testCollision = false;
+    bool testCollision = true;
     if (arguments.read("--testCollision")) testCollision = true;
 
     bool disableShaders = false;
