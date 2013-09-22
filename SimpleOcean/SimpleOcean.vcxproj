@@ -12,10 +12,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="application.cpp" />
+    <ClCompile Include="SimpleTraveller.cpp" />
     <ClCompile Include="SkyDome.cpp" />
     <ClCompile Include="SphereSegment.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SimpleTraveller.h" />
     <ClInclude Include="SkyDome.h" />
     <ClInclude Include="SphereSegment.h" />
   </ItemGroup>

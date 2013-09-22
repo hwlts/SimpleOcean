@@ -24,12 +24,18 @@
     <ClCompile Include="SphereSegment.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="SimpleTraveller.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SkyDome.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="SphereSegment.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleTraveller.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

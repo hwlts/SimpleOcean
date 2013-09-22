@@ -47,6 +47,8 @@
 
 #include "SkyDome.h"
 
+#include "SimpleTraveller.h"
+
 #define USE_CUSTOM_SHADER
 
 // ----------------------------------------------------
@@ -770,7 +772,7 @@ int main(int argc, char *argv[])
 
     osgViewer::Viewer viewer;
 
-    viewer.setUpViewInWindow( 150,150,1024,768, 0 );
+    //viewer.setUpViewInWindow( 150,150,1024,768, 0 );
     viewer.addEventHandler( new osgViewer::StatsHandler );
     osg::ref_ptr<TextHUD> hud = new TextHUD;
 
@@ -841,7 +843,15 @@ int main(int argc, char *argv[])
         }
     }
 
-    viewer.setSceneData( root );
+	osg::ref_ptr<osg::MatrixTransform> land = new osg::MatrixTransform();
+	osg::ref_ptr<osg::Node> node = osgDB::readNodeFile("E:\\OSG_Resource\\FLT\\Sample\\Data\\Vega\\town.flt");
+	land->addChild(node.get());
+	land->setMatrix(osg::Matrix::translate(2000,2000,1100));
+	root->addChild(land);
+
+	viewer.setSceneData(root);
+
+	viewer.setCameraManipulator(new SimpleTraveller());
 
     viewer.realize();
 
