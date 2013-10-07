@@ -46,7 +46,6 @@
 #include <osgOcean/ShaderManager>
 
 #include "SkyDome.h"
-
 #include "SimpleTraveller.h"
 
 #define USE_CUSTOM_SHADER
@@ -752,7 +751,7 @@ int main(int argc, char *argv[])
     double oceanSurfaceHeight = 0.0f;
     while (arguments.read("--oceanSurfaceHeight", oceanSurfaceHeight));
 
-    bool testCollision = true;
+    bool testCollision = true;			//testCollision原来被初始化为false，但这样船就不会被加载。
     if (arguments.read("--testCollision")) testCollision = true;
 
     bool disableShaders = false;
@@ -772,7 +771,7 @@ int main(int argc, char *argv[])
 
     osgViewer::Viewer viewer;
 
-    //viewer.setUpViewInWindow( 150,150,1024,768, 0 );
+    viewer.setUpViewInWindow( 150,150,1024,768, 0 );
     viewer.addEventHandler( new osgViewer::StatsHandler );
     osg::ref_ptr<TextHUD> hud = new TextHUD;
 
@@ -843,13 +842,7 @@ int main(int argc, char *argv[])
         }
     }
 
-	osg::ref_ptr<osg::MatrixTransform> land = new osg::MatrixTransform();
-	osg::ref_ptr<osg::Node> node = osgDB::readNodeFile("E:\\OSG_Resource\\FLT\\Sample\\Data\\Vega\\town.flt");
-	land->addChild(node.get());
-	land->setMatrix(osg::Matrix::translate(2000,2000,1100));
-	root->addChild(land);
-
-	viewer.setSceneData(root);
+    viewer.setSceneData( root );
 
 	viewer.setCameraManipulator(new SimpleTraveller());
 
