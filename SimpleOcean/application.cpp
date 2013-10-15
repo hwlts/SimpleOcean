@@ -501,6 +501,7 @@ public:
     {
         osgDB::Registry::instance()->getDataFilePathList().push_back("resources/island");
         const std::string filename = "islands.ive";
+		//const std::string filename = "E:\\OSG_Resource\\FLT\\Sample\\Data\\Vega\\town.flt";
         osg::ref_ptr<osg::Node> island = osgDB::readNodeFile(filename);
 
         if(!island.valid()){
@@ -819,8 +820,10 @@ int main(int argc, char *argv[])
 
     if (testCollision)
     {
-        osgDB::Registry::instance()->getDataFilePathList().push_back("resources/boat");
-        const std::string filename = "boat.3ds";
+        //osgDB::Registry::instance()->getDataFilePathList().push_back("resources/boat");
+        //const std::string filename = "boat.3ds";waliangge.flt
+		osgDB::Registry::instance()->getDataFilePathList().push_back("resources/boat/wlg");
+		const std::string filename = "waliangge.flt";
         osg::ref_ptr<osg::Node> boat = osgDB::readNodeFile(filename);
 
         if(boat.valid())
@@ -831,7 +834,8 @@ int main(int argc, char *argv[])
 
             osg::ref_ptr<osg::MatrixTransform> boatTransform = new osg::MatrixTransform;
             boatTransform->addChild(boat.get());
-            boatTransform->setMatrix(osg::Matrix::translate(osg::Vec3f(0.0f, 160.0f,0.0f)));
+            //boatTransform->setMatrix(osg::Matrix::translate(osg::Vec3f(0.0f, 160.0f,0.0f)));
+			boatTransform->setMatrix(osg::Matrix::translate(osg::Vec3f(0.0f, 160.0f,-10.0f)));
             boatTransform->setUpdateCallback( new BoatPositionCallback(scene->getOceanScene()) );
 
             scene->getOceanScene()->addChild(boatTransform.get());   
